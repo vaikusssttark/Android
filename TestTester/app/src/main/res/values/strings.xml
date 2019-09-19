@@ -1,3 +1,24 @@
 <resources>
     <string name="app_name">TestTester</string>
+    <string name="main_icon">main icon</string>
+    <string name="main_backgound">main_backgound</string>
+    <string name="start_btn_name">Старт</string>
+
+    <string name="register_background_desc">register_background</string>
+    <string name="register_icon_desc">register_icon</string>
+    <string name="ET_register_email_hint">Email</string>
+    <string name="ET_register_psw_hint">Пароль</string>
+    <string name="TW_register">Регистрация</string>
+    <string name="ET_pwd_repeat_hint">Повторите пароль</string>
+    <string name="BTN_register">Готово</string>
+    <string name="ET_register_hint">Логин</string>
+
+    <string name="login_background_desc">login_background_desc</string>
+    <string name="login_icon_desc">login_icon_desc</string>
+    <string name="TW_login">Авторизация</string>
+    <string name="ET_login_hint">Логин или Email</string>
+    <string name="ET_login_pwd">Пароль</string>
+    <string name="BTN_login_text">Вход</string>
+    <string name="TW_login_to_register_text">Зарегистрироваться</string>
+
 </resources>
