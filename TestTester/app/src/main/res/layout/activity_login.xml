@@ -12,7 +12,7 @@
         android:layout_height="match_parent"
         android:contentDescription="@string/login_background_desc"
         android:scaleType="centerCrop"
-        app:srcCompat="@drawable/register_background" />
+        app:srcCompat="@drawable/reg_background" />
 
     <ImageView
         android:id="@+id/register_icon"
@@ -24,41 +24,65 @@
         android:contentDescription="@string/login_icon_desc" />
 
     <LinearLayout
+        android:id="@+id/loginLayout"
         android:layout_width="400dp"
         android:layout_height="match_parent"
-        android:paddingTop="170dp"
-        android:paddingRight="30dp"
+        android:orientation="vertical"
         android:paddingLeft="30dp"
-        android:layout_centerHorizontal="true"
-        android:orientation="vertical">
+        android:paddingTop="170dp"
+        android:paddingRight="30dp">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="30sp"
-            android:paddingBottom="20dp"
             android:fontFamily="@font/open_sans_light"
-            android:text="@string/TW_login"/>
+            android:paddingBottom="20dp"
+            android:text="@string/TW_login"
+            android:textSize="30sp" />
 
         <EditText
             android:id="@+id/ET_login"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:ems="10"
             android:backgroundTint="@color/black"
-            android:textCursorDrawable="@color/start_btn"
+            android:ems="10"
+            android:hint="@string/ET_login_hint"
             android:inputType="text"
-            android:hint="@string/ET_login_hint" />
+            android:textCursorDrawable="@color/start_btn"
+            android:importantForAutofill="no" />
+
+        <TextView
+            android:id="@+id/TW_login_auth_error"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="-5dp"
+            android:textColor="@color/red"
+            android:fontFamily="@font/open_sans_light"
+            android:textSize="13sp"
+            android:visibility="invisible"/>
 
         <EditText
             android:id="@+id/ET_login_pwd"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:ems="10"
             android:backgroundTint="@color/black"
-            android:textCursorDrawable="@color/start_btn"
+            android:ems="10"
+            android:hint="@string/ET_login_pwd"
             android:inputType="textPassword"
-            android:hint="@string/ET_login_pwd" />
+            android:textCursorDrawable="@color/start_btn"
+            android:importantForAutofill="no" />
+
+        <TextView
+            android:id="@+id/TW_pwd_auth_error"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="-5dp"
+            android:textColor="@color/red"
+            android:fontFamily="@font/open_sans_light"
+            android:textSize="13sp"
+            android:visibility="invisible"/>
     </LinearLayout>
 
     <Button
@@ -70,7 +94,7 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="80dp"
-        android:background="@drawable/style_register_btn_action"
+        android:background="@drawable/style_reg_btn_action"
         android:textSize="30sp"
         android:fontFamily="@font/open_sans_light"
         android:text="@string/BTN_login_text" />
@@ -85,5 +109,5 @@
         android:layout_marginBottom="40dp"
         android:textSize="20sp"
         android:fontFamily="@font/open_sans_light"
-        android:text="@string/TW_login_to_register_text"/>
+        android:text="@string/TW_login_to_reg_text"/>
 </RelativeLayout>

@@ -1,40 +1,49 @@
 package test_app.vaikusstark.testingfeatures;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
+import android.view.View;
 import android.widget.Button;
-import android.widget.ImageView;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import test_app.vaikusstark.testingfeatures.requests.SuccessResponse;
+import test_app.vaikusstark.testingfeatures.requests.User;
 
 public class MainActivity extends AppCompatActivity {
 
-    ImageView bigIcon;
-    ImageView smallIcon;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         setContentView(R.layout.activity_main);
 
-        bigIcon = findViewById(R.id.bigIcon);
-        smallIcon = findViewById(R.id.smallIcon);
         Button btn = findViewById(R.id.button);
+        btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                DBHelper.getInstance()
+                        .getTesterAPI()
+                        .updateUserPassword(1, "qwerty@asdf@")
+                        .enqueue(new Callback<SuccessResponse>() {
+                            @Override
+                            public void onResponse(@NonNull Call<SuccessResponse> call, @NonNull Response<SuccessResponse> response) {
+                                SuccessResponse successResponse = response.body();
+                                assert successResponse != null;
+                                System.out.println(successResponse.getSuccess());
+                                System.out.println(successResponse.getMessage());
+                            }
 
-        Animation animRotateIn_icon = AnimationUtils.loadAnimation(this,
-                R.anim.rotate);
+                            @Override
+                            public void onFailure(@NonNull Call<SuccessResponse> call, @NonNull Throwable t) {
+                                System.out.println("Internet connection error");
+                                t.printStackTrace();
+                            }
+                        });
+            }
+        });
 
-        smallIcon.startAnimation(animRotateIn_icon);
-        btn.startAnimation(animRotateIn_icon);
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-        Animation animRotateIn_big = AnimationUtils.loadAnimation(this,
-                R.anim.rotate);
-        bigIcon.startAnimation(animRotateIn_big);
     }
 }
